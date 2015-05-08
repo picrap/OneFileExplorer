@@ -5,6 +5,10 @@
 namespace OneFileExplorerTest
 {
     using System.Windows;
+    using Caliburn.Micro;
+    using FileExplorer.WPF.ViewModels;
+    using FileExplorer.WPF.Views;
+    using OneFileExplorer;
 
     /// <summary>
     /// Interaction logic for App.xaml
@@ -18,6 +22,10 @@ namespace OneFileExplorerTest
 
         private void OnStartup(object sender, StartupEventArgs e)
         {
+            var view = new OneFileExplorerWindow();
+            var viewModel = new ExplorerViewModel(null, new EventAggregator());
+            view.DataContext = viewModel;
+            view.ShowDialog();
         }
     }
 }
